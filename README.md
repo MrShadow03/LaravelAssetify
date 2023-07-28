@@ -1,8 +1,8 @@
 # LaravelAssetify
 
-![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/your-publisher-name.laravelassetify)
-![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/your-publisher-name.laravelassetify)
-![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/your-publisher-name.laravelassetify)
+![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/galibjaman.laravelassetify)
+![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/galibjaman.laravelassetify)
+![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/galibjaman.laravelassetify)
 ![GitHub](https://img.shields.io/github/license/MrShadow03/LaravelAssetify)
 
 ## Description
