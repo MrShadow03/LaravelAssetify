@@ -29,7 +29,7 @@ This extension requires Visual Studio Code version 1.80.0 or higher.
 
 ## License
 
-This extension is licensed under the [MIT License](LICENSE).
+This extension is licensed under the [MIT License](LICENSE). See the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 
