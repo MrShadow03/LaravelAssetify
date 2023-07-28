@@ -1,6 +1,6 @@
 {
-  "name": "html-to-laravel-path-converter",
-  "displayName": "HTML to Laravel Path Converter",
+  "name": "laravelassetify",
+  "displayName": "LaravelAssetify",
   "description": "",
   "version": "0.0.1",
   "engines": {
