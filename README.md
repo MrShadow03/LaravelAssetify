@@ -3,7 +3,7 @@
 ![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/your-publisher-name.laravelassetify)
 ![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/your-publisher-name.laravelassetify)
 ![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/your-publisher-name.laravelassetify)
-![GitHub](https://img.shields.io/github/license/MrShadow03/your-extension-repo)
+![GitHub](https://img.shields.io/github/license/MrShadow03/LaravelAssetify)
 
 ## Description
 
@@ -33,11 +33,11 @@ This extension is licensed under the [MIT License](LICENSE).
 
 ## Contributing
 
-Contributions are welcome! Feel free to open issues or pull requests on [GitHub](https://github.com/MrShadow03/your-extension-repo).
+Contributions are welcome! Feel free to open issues or pull requests on [GitHub](https://github.com/MrShadow03/LaravelAssetify).
 
 ## Feedback
 
-If you have any feedback, suggestions, or issues, please let us know by opening an issue on [GitHub](https://github.com/MrShadow03/your-extension-repo).
+If you have any feedback, suggestions, or issues, please let us know by opening an issue on [GitHub](https://github.com/MrShadow03/LaravelAssetify).
 
 ## Credits
 
