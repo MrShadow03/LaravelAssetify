@@ -1,8 +1,10 @@
 {
   "name": "laravelassetify",
   "displayName": "LaravelAssetify",
-  "description": "",
-  "version": "0.0.1",
+  "description": "LaravelAssetify is a Visual Studio Code extension that effortlessly converts HTML image, script, and link paths to dynamic Laravel asset paths. Simplify your workflow by transforming static asset references into Laravel's `asset()` helper function format, ensuring compatibility with your Laravel-powered applications.",
+  "version": "1.0.0",
+  "publisher": "Galib Jaman",
+  "icon": "./icons/icon-128x128.png",
   "engines": {
     "vscode": "^1.80.0"
   },
