@@ -39,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     if (!selectedText.trim()) {
       const convertWholeFile = await vscode.window.showInformationMessage(
-        "No text selected. Do you want to check the fun of whole file?",
+        "No text selected. Do you want to check the whole file?",
         { modal: true },
         "Yes",
         "No"
@@ -63,7 +63,6 @@ export function activate(context: vscode.ExtensionContext) {
       });
     }
   });
-  // context.subscriptions.push(disposable);
 }
 
 function convertToLaravelSyntax(text: string): string {
@@ -126,26 +125,3 @@ selfClosingTags.forEach(tag => {
   
   return parsedHTML;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if (!text.includes('</wbr>')) {
-//   parsedHTML = parsedHTML.replace(/<\/wbr>/g, '');
-// }
-// if (!text.includes('</audio>')) {
-//   parsedHTML = parsedHTML.replace(/<\/audio>/g, '');
-// }
-// if (!text.includes('</video>')) {
-//   parsedHTML = parsedHTML.replace(/<\/video>/g, '');
-// }
