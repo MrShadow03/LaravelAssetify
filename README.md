@@ -27,6 +27,25 @@ This extension requires Visual Studio Code version 1.80.0 or higher.
 4. If nothing is selected, the extension will prompt you to convert the entire file.
 5. The extension will convert the paths to use Laravel's `asset()` function, excluding paths already in the correct format or starting with "https://".
 
+### Note
+
+1. **No Path Validation**: This extension does not validate the paths provided. It converts the paths to use Laravel's `asset()` function directly. Ensure that the paths are correct and accessible within your Laravel application.
+
+2. **Quotation Mark Issue**: Be cautious when the predefined Laravel asset path and the attribute use the same quotation mark (either single or double). The extension may encounter issues and break them. For example:
+
+   ```html
+   <!-- Incorrect (Might get broken by the extension) -->
+   <img src="{{ asset("images/logo.png") }}">
+   <img src='{{ asset('images/logo.png') }}'>
+
+   <!-- Correct (Will be ignored by the extension) -->
+   <img src="{{ asset('images/logo.png') }}">
+   <img src='{{ asset("images/logo.png") }}'>
+    ```
+3. **Recommendation**: Use this after you have done your component slicing.
+4. Currently only supports src and href attributes for image, script, and link tags.
+5. Some indentation issues might occur with <html>, <head>, and <body> tags after conversion.
+
 ## License
 
 This extension is licensed under the [MIT License](LICENSE). See the [LICENSE](LICENSE) file for details.

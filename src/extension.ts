@@ -39,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     if (!selectedText.trim()) {
       const convertWholeFile = await vscode.window.showInformationMessage(
-        "No text selected. Do you want to check the whole file?",
+        "No text selected. Do you want to check the fun of whole file?",
         { modal: true },
         "Yes",
         "No"
@@ -49,8 +49,9 @@ export function activate(context: vscode.ExtensionContext) {
         const entireDocumentRange = document.validateRange(new vscode.Range(0, 0, Number.MAX_VALUE, Number.MAX_VALUE));
         const entireText = document.getText(entireDocumentRange);
         const convertedText = convertToLaravelSyntax(entireText);
-
+        
         editor.edit(editBuilder => {
+          console.log(convertedText);
           editBuilder.replace(entireDocumentRange, convertedText);
         });
       }
@@ -58,16 +59,17 @@ export function activate(context: vscode.ExtensionContext) {
       const convertedText = convertToLaravelSyntax(selectedText);
       editor.edit(editBuilder => {
         editBuilder.replace(selection, convertedText);
+        console.log(selection);
       });
     }
   });
-
-  context.subscriptions.push(disposable);
+  // context.subscriptions.push(disposable);
 }
 
 function convertToLaravelSyntax(text: string): string {
-  const $ = cheerio.load(text);
+  const $ = cheerio.load(text, { xmlMode: false, decodeEntities: false });
 
+  // Convert attributes to Blade asset paths
   $('img, script, link').each((index, element) => {
     const tagName = element.tagName.toLowerCase();
 
@@ -86,13 +88,64 @@ function convertToLaravelSyntax(text: string): string {
     if (
       value &&
       !value.startsWith("https://") &&
+      !value.startsWith("http://") &&
       !value.trim().startsWith("{{ asset(") &&
-      !/{{\s*asset\(\s*'[^']+'\s*\)\s*}}/.test(value) &&
-      !$(element).find('a').length
-    ) {
+      !value.trim().startsWith("{{") &&
+      !/{{\s*asset\(\s*["'][^"']*["']\s*\)\s*}}/.test(value) 
+      // && !$(element).find('a').length
+      ) {
+      console.log(value);
+      // Use single quotes directly without HTML encoding
       $(element).attr(attribute, `{{ asset('${value}') }}`);
     }
   });
 
-  return $.html();
+  let parsedHTML = $.root().html() || '';
+  // If the parsedHTML contains &quot; then replace it with single quote
+  if (parsedHTML.includes('&quot;')) {
+    parsedHTML = parsedHTML.replace(/&quot;/g, "'");
+  }
+  
+  const selfClosingTags = [
+  'body', 'head', 'html', 'img', 'br', 'hr', 'area', 'base', 'col', 'command', 'embed', 'input',
+  'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr', 'audio', 'video'
+];
+
+selfClosingTags.forEach(tag => {
+  if (!text.includes(`</${tag}>`)) {
+    parsedHTML = parsedHTML.replace(new RegExp(`<\/${tag}>`, 'g'), '');
+    // parsedHTML = parsedHTML.replace(/<\/img>/g, '');
+  }
+});
+['head', 'body', 'html'].forEach(tag => {
+  if (!text.includes(`<${tag}>`)) {
+    parsedHTML = parsedHTML.replace(new RegExp(`<${tag}>`, 'g'), '');
+    // parsedHTML = parsedHTML.replace(/<\/img>/g, '');
+  }
+});
+  
+  return parsedHTML;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if (!text.includes('</wbr>')) {
+//   parsedHTML = parsedHTML.replace(/<\/wbr>/g, '');
+// }
+// if (!text.includes('</audio>')) {
+//   parsedHTML = parsedHTML.replace(/<\/audio>/g, '');
+// }
+// if (!text.includes('</video>')) {
+//   parsedHTML = parsedHTML.replace(/<\/video>/g, '');
+// }
