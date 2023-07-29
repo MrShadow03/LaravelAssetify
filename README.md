@@ -44,7 +44,7 @@ This extension requires Visual Studio Code version 1.80.0 or higher.
     ```
 3. **Recommendation**: Use this after you have done your component slicing.
 4. Currently only supports (`src`) and (`href`) attributes for (`<img>`), (`<script>`), and (`<link>`) tags.
-5. Some indentation issues might occur with <html>, <head>, and <body> tags after conversion.
+5. Some indentation issues might occur with (`<html>`), (`<head>`), and (`<body>`) tags after conversion.
 
 ## License
 
