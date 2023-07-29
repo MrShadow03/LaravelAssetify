@@ -43,7 +43,7 @@ This extension requires Visual Studio Code version 1.80.0 or higher.
    <img src='{{ asset("images/logo.png") }}'>
     ```
 3. **Recommendation**: Use this after you have done your component slicing.
-4. Currently only supports src and href attributes for image, script, and link tags.
+4. Currently only supports (`src`) and (`href`) attributes for (`<img>`), (`<script>`), and (`<link>`) tags.
 5. Some indentation issues might occur with <html>, <head>, and <body> tags after conversion.
 
 ## License
