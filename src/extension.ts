@@ -106,22 +106,22 @@ function convertToLaravelSyntax(text: string): string {
   }
   
   const selfClosingTags = [
-  'body', 'head', 'html', 'img', 'br', 'hr', 'area', 'base', 'col', 'command', 'embed', 'input',
-  'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr', 'audio', 'video'
-];
+    'body', 'head', 'html', 'img', 'br', 'hr', 'area', 'base', 'col', 'command', 'embed', 'input',
+    'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr', 'audio', 'video'
+  ];
 
-selfClosingTags.forEach(tag => {
-  if (!text.includes(`</${tag}>`)) {
-    parsedHTML = parsedHTML.replace(new RegExp(`<\/${tag}>`, 'g'), '');
-    // parsedHTML = parsedHTML.replace(/<\/img>/g, '');
-  }
-});
-['head', 'body', 'html'].forEach(tag => {
-  if (!text.includes(`<${tag}>`)) {
-    parsedHTML = parsedHTML.replace(new RegExp(`<${tag}>`, 'g'), '');
-    // parsedHTML = parsedHTML.replace(/<\/img>/g, '');
-  }
-});
+  selfClosingTags.forEach(tag => {
+    if (!text.includes(`</${tag}>`)) {
+      parsedHTML = parsedHTML.replace(new RegExp(`<\/${tag}>`, 'g'), '');
+      // parsedHTML = parsedHTML.replace(/<\/img>/g, '');
+    }
+  });
+  ['head', 'body', 'html'].forEach(tag => {
+    if (!text.includes(`<${tag}>`)) {
+      parsedHTML = parsedHTML.replace(new RegExp(`<${tag}>`, 'g'), '');
+      // parsedHTML = parsedHTML.replace(/<\/img>/g, '');
+    }
+  });
   
   return parsedHTML;
 }
